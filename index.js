@@ -10,7 +10,8 @@ const mongoose      = require("mongoose"),
 
 //Routes
 const indexRoutes = require("./routes/indexRoutes"),
-      adminRoutes = require("./routes/adminRoutes");  
+      adminRoutes = require("./routes/adminRoutes"),
+      blogRoutes  = require('./routes/blogRoutes');  
 
 
 
@@ -48,7 +49,7 @@ app.use((req, res, next)=>{
 //Routes Using
 app.use(indexRoutes);
 app.use(adminRoutes);
-
+app.use(blogRoutes);
 
 
 const server = app.listen(3000,(err)=> {
