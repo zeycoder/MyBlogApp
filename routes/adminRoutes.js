@@ -1,7 +1,6 @@
-const passport = require('passport');
-
 const express = require('express'),
       User    = require('../models/userModel'),
+      passport = require('passport'),
       router  = express.Router();
 
 let adminActions =[
