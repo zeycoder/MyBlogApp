@@ -37,8 +37,13 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li> 
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/resume">Resume</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/signin">Sign İn</a></li>
-
+                        <% if(!currentUser){ %>
+                        
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/signin">Sign In</a></li>
+                        <% } else{ %>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/admin"> <%= currentUser.username %> </a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/signout">Sign Out</a></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
