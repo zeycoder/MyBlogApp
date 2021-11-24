@@ -19,14 +19,37 @@ router.post("/addNewBlog",(req,res)=>{
     Blog.create(newBlog)
     .then((newBlog)=>{
         console.log(newBlog);
-        res.status(201).json(newBlog);
+        res.render('blog/newBlog');
+        //res.status(201).json(newBlog);
     })
     .catch((err)=>{
         console.log("***ERROR = 404 NOT FOUND***");
         console.log(err);
         res.send(err);
     });
-
 });
+
+router.get('/blogs/:blogId',(req,res)=>{
+    Blog.findById(req.params.blogId)
+    .then((foundBlog)=>{
+        res.render("blog/showBlog", {foundBlog:foundBlog});
+    })
+    .catch((err)=>{
+        console.log("***ERROR = 404 NOT FOUND***")
+    });
+});
+
+router.get("/testing", (req,res)=>{
+    Blog.find()
+    .then((foundBlogs)=>{
+        res.json(foundBlogs);
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.send(err);
+    });
+});
+
+
 
 module.exports = router;
